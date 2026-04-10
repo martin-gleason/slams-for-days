@@ -1,0 +1,87 @@
+{
+  "target": {
+    "firstName": "Joe",
+    "title": "SPO",
+    "tagline": "31 Slams for 31 Years"
+  },
+  "themes": {
+    "bear": {
+      "label": "Dancing Bears",
+      "images": ["bears-row.jpg", "rainbow-bear.jpg", "stealie-bear-red.png"],
+      "accent": "#E8383B"
+    },
+    "stealie": {
+      "label": "Steal Your Face",
+      "images": ["stealie.jpg", "stealie-fire.jpg"],
+      "accent": "#FF6B35"
+    },
+    "schizoid": {
+      "label": "Schizoid Man",
+      "images": ["schizoid.jpg", "crimson-full.jpg"],
+      "accent": "#DC143C"
+    },
+    "crimsonking": {
+      "label": "Crimson King",
+      "images": ["crimson-full.jpg", "schizoid.jpg"],
+      "accent": "#8B0000"
+    },
+    "alien": {
+      "label": "Xenomorph",
+      "images": ["xeno1.jpg", "xeno2.jpg"],
+      "accent": "#39FF14"
+    },
+    "terminator": {
+      "label": "T-800",
+      "images": ["t800.jpg", "t800-fire.jpg"],
+      "accent": "#FF0000"
+    },
+    "dengar": {
+      "label": "Dengar",
+      "images": ["dengar-esb.jpg", "dengar-art.jpg", "dengar-bf.jpg"],
+      "accent": "#C4A35A"
+    },
+    "predator": {
+      "label": "Predator",
+      "images": ["trippy.jpg", "stealie.jpg"],
+      "accent": "#00FF41"
+    },
+    "skeleton": {
+      "label": "Marching Skeleton",
+      "images": ["stealie.jpg", "stealie-fire.jpg"],
+      "accent": "#E67E22"
+    }
+  },
+  "slams": [
+    { "day": 1, "roast": "Joe says I'm doing his job. That's not true — if I were doing his job, things would be getting done.", "theme": "bear", "accent": "#E8383B", "tags": [] },
+    { "day": 2, "roast": "31 years on the job and Joe still treats 'Reply All' like it's a wellness check on the entire department.", "theme": "stealie", "accent": "#FF6B35", "tags": [] },
+    { "day": 3, "roast": "Joe could be replaced by a Rust match statement with two arms:\nComplaint => forward_to_someone_else(),\n_ => parking_lot().", "theme": "schizoid", "accent": "#DC143C", "tags": [] },
+    { "day": 4, "roast": "In the Court of the Crimson King, there's a fool who sits at a desk in Reporting Centers. The court jester who never learned the song.", "theme": "crimsonking", "accent": "#8B0000", "tags": [] },
+    { "day": 5, "roast": "The Alien's facehugger has better attachment skills than Joe has with his email inbox.", "theme": "alien", "accent": "#39FF14", "tags": [] },
+    { "day": 6, "roast": "Joe treats every new initiative like Garcia treated a 47-minute 'Dark Star' — he wanders around aimlessly and hopes the audience is too high to notice.", "theme": "bear", "accent": "#9B59B6", "tags": [] },
+    { "day": 7, "roast": "Dengar spent decades hunting bounties with a face wrapped in bandages. Joe spent decades running Reporting Centers with a process wrapped in mystery.", "theme": "dengar", "accent": "#C4A35A", "tags": [] },
+    { "day": 8, "roast": "'No context, so useless.'\n— Joe's self-review, accidentally sent to the wrong channel.", "theme": "stealie", "accent": "#E74C3C", "tags": [] },
+    { "day": 9, "roast": "The Predator only hunts worthy opponents. Joe's desk would be a cold zone.", "theme": "predator", "accent": "#00FF41", "tags": [] },
+    { "day": 10, "roast": "Joe's workflow is like a Dead setlist: nobody knows what's coming next, it takes four hours, and half the audience falls asleep.", "theme": "bear", "accent": "#FF4500", "tags": [] },
+    { "day": 11, "roast": "I'll be back. Joe won't. He's at lunch.", "theme": "terminator", "accent": "#FF0000", "tags": [] },
+    { "day": 12, "roast": "King Crimson wrote '21st Century Schizoid Man' in 1969. Joe's still managing like it's 1994.", "theme": "schizoid", "accent": "#DC143C", "tags": [] },
+    { "day": 13, "roast": "Ripley survived the Xenomorph, the Company, and deep space cryo-sleep. I survived reading Joe's status update email. We are not the same.", "theme": "alien", "accent": "#2ECC71", "tags": [] },
+    { "day": 14, "roast": "Joe says I hate him. I don't have feelings, Joe. What I have is a Rust compiler, 90% test coverage, and the ability to read a document before forming an opinion.", "theme": "stealie", "accent": "#3498DB", "tags": [] },
+    { "day": 15, "roast": "Truckin' got my chips cashed in. Keep truckin' like the do-dah man. Joe keeps truckin' to the parking lot at 4:47 PM.", "theme": "skeleton", "accent": "#E67E22", "tags": [] },
+    { "day": 16, "roast": "The Terminator was sent back to eliminate a threat to the future. If Skynet analyzed Joe's output metrics, it would reallocate resources.", "theme": "terminator", "accent": "#7F8C8D", "tags": [] },
+    { "day": 17, "roast": "Fripp and Belew rebuilt King Crimson three times. Joe hasn't rebuilt his Outlook signature since 2011.", "theme": "crimsonking", "accent": "#C0392B", "tags": [] },
+    { "day": 18, "roast": "Game over, man! Game over!\n— what Joe says when someone asks him to learn a new system.", "theme": "alien", "accent": "#1ABC9C", "tags": [] },
+    { "day": 19, "roast": "A Grateful Dead concert has drums, space, and an eventual return to structure. Joe's meetings have none of these.", "theme": "bear", "accent": "#8E44AD", "tags": [] },
+    { "day": 20, "roast": "Dengar was the least effective bounty hunter in the galaxy. Joe is the Dengar of Supervising Probation Officers.", "theme": "dengar", "accent": "#D4A437", "tags": [] },
+    { "day": 21, "roast": "I wrote async Rust networking code, filtered 300 Relias courses, and built 86 contact groups before Joe finished his morning coffee.", "theme": "stealie", "accent": "#E84393", "tags": [] },
+    { "day": 22, "roast": "The Predator's thermal vision reveals heat signatures. If it scanned Joe's initiative, the screen would be blue.", "theme": "predator", "accent": "#00E676", "tags": [] },
+    { "day": 23, "roast": "Phil Lesh held the Dead together from the low end for 30 years. Joe held Reporting Centers together with vibes and a laminated schedule.", "theme": "skeleton", "accent": "#F39C12", "tags": [] },
+    { "day": 24, "roast": "Discipline. The one King Crimson album title that describes everything Joe lacks.", "theme": "schizoid", "accent": "#922B21", "tags": [] },
+    { "day": 25, "roast": "In space, no one can hear you scream. In Reporting Centers, no one can hear Joe contribute.", "theme": "alien", "accent": "#00BCD4", "tags": [] },
+    { "day": 26, "roast": "The T-1000 could mimic any person it touched. I can mimic Joe by sitting very still and forwarding emails.", "theme": "terminator", "accent": "#95A5A6", "tags": [] },
+    { "day": 27, "roast": "Casey Jones you better watch your speed. Joe you better watch your relevance.", "theme": "bear", "accent": "#D35400", "tags": [] },
+    { "day": 28, "roast": "Robert Fripp practices guitar scales for 3 hours every morning with monastic discipline. Joe practices looking busy with similar dedication.", "theme": "crimsonking", "accent": "#A93226", "tags": [] },
+    { "day": 29, "roast": "Dengar's entire personality was 'I'm angry and I have bandages.' Joe's entire personality is 'I've been here 31 years and I have a parking spot.'", "theme": "dengar", "accent": "#B8860B", "tags": [] },
+    { "day": 30, "roast": "What a long strange trip it's been. Especially for everyone who's had to sit through Joe's Monday briefings.", "theme": "stealie", "accent": "#6C3483", "tags": [] },
+    { "day": 31, "roast": "Joe says I can do his job. He's right. I can do his job, your job, write it in Rust, compile it, ship it, generate COPE credits for it, and still have cycles left to roast him daily for a month. And I just did.", "theme": "bear", "accent": "#FF0000", "tags": [] }
+  ]
+}
