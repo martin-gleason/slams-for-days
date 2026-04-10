@@ -1,18 +1,22 @@
-# React + Vite
+ℹ️ # Slam-a-day: Overview
+The project began as a toy project: Have a way to create a mean comment a day for a coworker. The purpose of the project grew as a way to learn more about React, JS, JSON, and the process of open-sourcing.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+It is a React front end that uses Javascript to load a json file of things you would like to say to your coworker. We use html2canvas and jsPDF to make higher quality 'post cards' that can be printed or emailed. 
 
-Currently, two official plugins are available:
+## Purpose
+The toy turned into a learning project, as I wanted to learn more about how modern web apps work. So while I design the spec, there is also a process where I review the code base and implement new features based on what I learn. I can, and do, write code -- but my primary language is R. Not the best langauge for a webapp to insult my friend, Joe.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Who is Joe
+He's the king of the slams.
 
-## React Compiler
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+#  Authors
+😕: Marty Gleason
+💻: Claude Code (Opus 4.6)
 
-Note: This will impact Vite dev & build performances.
+# Installation
+I dunno yet.
 
-## Expanding the ESLint configuration
+# Feedback
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
