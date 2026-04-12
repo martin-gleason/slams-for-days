@@ -13,7 +13,9 @@
  *   ├── Header          — title, tagline, shimmer animation
  *   ├── DaySelector     — 31-button grid
  *   ├── Postcard        — the actual postcard card (inside print-area wrapper)
- *   ├── ExportButtons   — download PDF button
+ *   ├── ExportButtons   — download PDF/PNG, share button
+ *   ├── SlamForm        — add new slams (chip autocomplete tags)
+ *   ├── DataActions      — export all slams JSON, reset to defaults
  *   ├── DeploymentProtocol (inline) — usage instructions
  *   ├── Prev/Next nav   (inline) — sequential day navigation
  *   └── Footer          (inline) — OCS-1138 branding
@@ -32,11 +34,16 @@ import Header from './components/Header';
 import DaySelector from './components/DaySelector';
 import Postcard from './components/Postcard';
 import ExportButtons from './components/ExportButtons';
+import SlamForm from './components/SlamForm';
+import DataActions from './components/DataActions';
 
 export default function App() {
   // useSlams returns everything we need: the data, the current selection, and controls.
   // Destructuring pulls out each piece so we can pass only what each child needs.
-  const { slams, themes, target, currentSlam, selected, setSelected, loading, error } = useSlams();
+  const {
+    slams, themes, target, currentSlam, selected, setSelected,
+    loading, error, addSlam, resetToDefaults,
+  } = useSlams();
 
   // This ref gets attached to the postcard wrapper div so ExportButtons can
   // pass the actual DOM node to html2canvas for screenshot capture.
@@ -118,33 +125,57 @@ export default function App() {
         {/* Download button(s) */}
         <ExportButtons postcardRef={postcardRef} day={currentSlam.day} firstName={target.firstName} />
 
+        {/* Add new slams form */}
+        <SlamForm slams={slams} themes={themes} onAddSlam={addSlam} />
+
+        {/* Dataset management: export JSON, reset to defaults */}
+        <DataActions data={{ target, themes, slams }} onReset={resetToDefaults} />
+
         {/* ── Deployment Protocol ──────────────────────────────────────
-            Inline instructions for how to use the exported PDF.
+            Collapsible instructions for how to use the exported PDF.
+            Uses native <details>/<summary> instead of useState because:
+              - It's accessible out of the box (keyboard, screen readers)
+              - No JS needed for the toggle — works even if React fails
+              - The browser handles open/close state without re-rendering
             Small enough to stay in App.jsx rather than its own component. */}
         <div className="no-print" style={{
           maxWidth: 480, margin: "0 auto", padding: "0 20px 10px", textAlign: "center",
         }}>
-          <div style={{
+          <details style={{
             padding: "12px 18px", borderRadius: 8,
             background: "rgba(255,255,255,0.02)", border: "1px solid #1a1a1a",
           }}>
-            <div style={{
+            <summary style={{
               fontSize: 10, color: "#DC143C",
               fontFamily: "'Courier New', monospace", letterSpacing: 2,
-              marginBottom: 6, textTransform: "uppercase",
+              textTransform: "uppercase", cursor: "pointer",
+              listStyle: "none",
             }}>
               Deployment Protocol
+            </summary>
+            <div style={{
+              fontSize: 13, color: "#666", lineHeight: 2,
+              fontFamily: "'Georgia', serif", marginTop: 10, textAlign: "left",
+            }}>
+              <div><span style={{ color: currentSlam?.accent || "#DC143C", fontWeight: "bold" }}>1.</span> Select a day above</div>
+              <div><span style={{ color: currentSlam?.accent || "#DC143C", fontWeight: "bold" }}>2.</span> Click Download PDF or PNG</div>
+              <div><span style={{ color: currentSlam?.accent || "#DC143C", fontWeight: "bold" }}>3.</span> Paper: <strong style={{ color: "#999" }}>6&times;4.25</strong> | Margins: <strong style={{ color: "#999" }}>None</strong></div>
+              <div><span style={{ color: currentSlam?.accent || "#DC143C", fontWeight: "bold" }}>4.</span> Attach to email &rarr; deploy &rarr; deny everything</div>
             </div>
             <div style={{
-              fontSize: 11, color: "#666", lineHeight: 1.8,
-              fontFamily: "'Georgia', serif",
+              marginTop: 10, fontSize: 11, color: "#555",
+              fontFamily: "'Courier New', monospace",
             }}>
-              1. Select a day above<br/>
-              2. Click Download PDF<br/>
-              3. Paper: <strong style={{ color: "#999" }}>6&times;4.25</strong> | Margins: <strong style={{ color: "#999" }}>None</strong><br/>
-              4. Attach to email &rarr; deploy &rarr; deny everything
+              <a
+                href="https://github.com/martygleason/slams-for-days/blob/main/CONTRIBUTING.md"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ color: "#DC143C", textDecoration: "none" }}
+              >
+                How to add your own slams &rarr;
+              </a>
             </div>
-          </div>
+          </details>
         </div>
 
         {/* ── Prev / Next navigation ──────────────────────────────────

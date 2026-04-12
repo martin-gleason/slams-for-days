@@ -66,13 +66,15 @@ export default function Postcard({ data, themes }) {
       {images[0] && (
         <img src={`${basePath}${images[0]}`} alt="" style={{
           position: "absolute", top: 6, left: 6, height: 65,
-          opacity: 0.35, borderRadius: 4,
+          opacity: 0.55, borderRadius: 4,
+          filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.2))",
         }}/>
       )}
       {images[0] && (
         <img src={`${basePath}${images[0]}`} alt="" style={{
           position: "absolute", top: 6, right: 6, height: 65,
-          opacity: 0.35, borderRadius: 4, transform: "scaleX(-1)",
+          opacity: 0.55, borderRadius: 4, transform: "scaleX(-1)",
+          filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.2))",
         }}/>
       )}
 
@@ -82,7 +84,7 @@ export default function Postcard({ data, themes }) {
         <img src={`${basePath}${images[1]}`} alt="" style={{
           position: "absolute", bottom: 8, left: "50%",
           transform: "translateX(-50%)", height: 50,
-          opacity: 0.3, borderRadius: 4,
+          opacity: 0.45, borderRadius: 4,
         }}/>
       )}
 
@@ -117,6 +119,7 @@ export default function Postcard({ data, themes }) {
           fontWeight: "bold", fontSize: 15,
           boxShadow: `0 2px 8px ${data.accent}44`,
           border: "1.5px solid rgba(255,255,255,0.3)",
+          textShadow: "0 1px 3px rgba(0,0,0,0.4)",
         }}>
           {data.day}
         </div>
@@ -140,14 +143,26 @@ export default function Postcard({ data, themes }) {
 
         {/* ── The roast ────────────────────────────────────────────────
             whiteSpace: "pre-line" preserves \n line breaks from the JSON
-            while still wrapping long lines normally. The text-shadow creates
-            a soft white glow behind the text for readability over images. */}
+            while still wrapping long lines normally.
+
+            The backing panel (semi-transparent white rectangle) provides
+            consistent readability over any theme image. We keep the
+            text-shadow *in addition to* the panel because the shadow
+            smooths the text edges against the panel's soft border —
+            removing it makes the text look slightly harsh where the
+            panel fades out. Belt and suspenders. */}
         <div style={{
-          fontSize, lineHeight: 1.7, color: "#1a1a1a", fontStyle: "italic",
-          maxWidth: 430, textShadow: "0 0 30px rgba(255,255,255,0.95)",
-          whiteSpace: "pre-line",
+          background: "rgba(255,255,255,0.65)",
+          borderRadius: 8, padding: "10px 18px",
+          maxWidth: 440,
         }}>
-          &ldquo;{data.roast}&rdquo;
+          <div style={{
+            fontSize, lineHeight: 1.7, color: "#1a1a1a", fontStyle: "italic",
+            textShadow: "0 0 20px rgba(255,255,255,0.8)",
+            whiteSpace: "pre-line",
+          }}>
+            &ldquo;{data.roast}&rdquo;
+          </div>
         </div>
 
         {/* ── Footer ───────────────────────────────────────────────────
@@ -158,21 +173,21 @@ export default function Postcard({ data, themes }) {
           display: "flex", justifyContent: "space-between", alignItems: "flex-end",
         }}>
           <div style={{
-            fontSize: 6, color: "#bbb",
+            fontSize: 8, color: "#888",
             fontFamily: "'Courier New', monospace", letterSpacing: 1,
           }}>
             {"\u2620"} {"\u26A1"} {"\u{1F339}"}
           </div>
           <div style={{
-            fontSize: 6, color: "#bbb",
+            fontSize: 8, color: "#888",
             fontFamily: "'Courier New', monospace", letterSpacing: 2,
             textTransform: "uppercase", textAlign: "center", lineHeight: 1.5,
           }}>
             OCS-1138<br/>
-            <span style={{ fontSize: 5, opacity: 0.7 }}>Office of Career Services</span>
+            <span style={{ fontSize: 6, opacity: 0.7 }}>Office of Career Services</span>
           </div>
           <div style={{
-            fontSize: 6, color: "#bbb",
+            fontSize: 8, color: "#888",
             fontFamily: "'Courier New', monospace", letterSpacing: 1,
           }}>
             {"\u{1F339}"} {"\u26A1"} {"\u2620"}

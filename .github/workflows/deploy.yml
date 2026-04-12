@@ -1,0 +1,75 @@
+# Deploy to GitHub Pages on every push to main.
+#
+# How this works:
+#   1. Push to main triggers this workflow
+#   2. "build" job: checks out code, installs deps, runs `npm run build`
+#   3. The build output (dist/) is uploaded as a Pages artifact
+#   4. "deploy" job: takes that artifact and publishes it to GitHub Pages
+#
+# Why `npm ci` instead of `npm install`?
+#   `ci` does a clean install from package-lock.json exactly — no version
+#   resolution, no writing back to the lock file. This makes CI builds
+#   reproducible: you get the same dependency tree every time, regardless
+#   of what npm's resolver would pick today. `npm install` is for humans
+#   adding packages; `npm ci` is for machines reproducing a known state.
+#
+# Prerequisites:
+#   In the repo's Settings > Pages, set Source to "GitHub Actions"
+#   (not "Deploy from a branch").
+
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  # Allow manual trigger from the Actions tab
+  workflow_dispatch:
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
