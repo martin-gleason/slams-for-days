@@ -8,7 +8,7 @@ A daily devotional for the colleague who earned it.
 
 ## Overview
 
-The project began as a toy project: Have a way to create a mean comment a day for a coworker. The purpose of the project grew as a way to learn more about React, JS, JSON, and the process of open-sourcing.
+The project began as a toy project: have a way to create a mean comment a day for a coworker. The purpose of the project grew as a way to learn more about React, JS, JSON, and the process of open-sourcing.
 
 It is a React front end that uses Javascript to load a json file of things you would like to say to your coworker. We use html2canvas and jsPDF to make higher quality 'post cards' that can be printed or emailed.
 
@@ -30,7 +30,7 @@ Joe's first name appears throughout. His last name doesn't. He's immortalized, n
 
 ```bash
 # Clone
-git clone https://github.com/<your-username>/slams-for-days.git
+git clone https://github.com/martin-gleason/slams-for-days.git
 cd slams-for-days
 
 # Install (use ci for a clean, reproducible install from the lock file)

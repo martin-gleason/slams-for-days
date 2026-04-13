@@ -167,7 +167,7 @@ export default function App() {
               fontFamily: "'Courier New', monospace",
             }}>
               <a
-                href="https://github.com/martygleason/slams-for-days/blob/main/CONTRIBUTING.md"
+                href="https://github.com/martin-gleason/slams-for-days/blob/main/CONTRIBUTING.md"
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{ color: "#DC143C", textDecoration: "none" }}
